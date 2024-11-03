@@ -1,0 +1,27 @@
+import { createThirdwebClient } from "thirdweb";
+import { ConnectButton } from "thirdweb/react";
+
+import { inAppWallet } from "thirdweb/wallets";
+
+const client = createThirdwebClient({
+  clientId: "....",
+});
+
+const wallets = [
+  inAppWallet({
+    auth: {
+      options: ["google", "email"],
+    },
+  }),
+];
+
+function Example() {
+  return (
+    <ConnectButton
+      client={client}
+      wallets={wallets}
+      theme={"light"}
+      connectModal={{ size: "compact" }}
+    />
+  );
+}
